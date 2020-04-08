@@ -21,14 +21,17 @@ void show_pointer(void *x) {
     show_bytes((byte_pointer) &x, sizeof(void *));
 }
 
-main()
-{
-    int myInt = 84;
-    float myFloat = 3.14;
-    show_int(myInt);
-    show_float(myFloat);
+void test_show_bytes(int val) {
+    int ival = val;
+    float fval = (float) ival;
+    int *pval = &ival;
+    show_int(ival);
+    show_float(fval);
+    show_pointer(pval);
+}
 
-    // THESE DON'T WORK:
-    // show_pointer(*myInt);
-    // show_pointer(*myFloat);
+int main()
+{
+    test_show_bytes(84);
+    return 0;
 }

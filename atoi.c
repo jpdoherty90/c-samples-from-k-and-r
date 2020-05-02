@@ -18,3 +18,5 @@ int atoi(char str[])
     
     return n;
 } 
+
+// The expression str[i] - '0' gives the numeric value of the character.

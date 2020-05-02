@@ -1,6 +1,10 @@
 #include <stdio.h>
+#define MAXLINE 1000
 
 typedef unsigned char *byte_pointer;
+
+int ival;
+float fval;
 
 void show_bytes(byte_pointer start, size_t len) {
     int i;
@@ -10,20 +14,26 @@ void show_bytes(byte_pointer start, size_t len) {
 }
 
 void show_int(int x) {
+    printf("%d\n", x);
+    printf("%.2x\n", &x);
     show_bytes((byte_pointer) &x, sizeof(int));
 }
 
 void show_float(float x) {
+    printf("%f\n", x);
+    printf("%.2x\n", &x);
     show_bytes((byte_pointer) &x, sizeof(float));
 }
 
 void show_pointer(void *x) {
+    printf("%x\n", x);
+    printf("%.2x\n", &x);
     show_bytes((byte_pointer) &x, sizeof(void *));
 }
 
 void test_show_bytes(int val) {
-    int ival = val;
-    float fval = (float) ival;
+    ival = val;
+    fval = (float) val;
     int *pval = &ival;
     show_int(ival);
     show_float(fval);
@@ -32,6 +42,6 @@ void test_show_bytes(int val) {
 
 int main()
 {
-    test_show_bytes(84);
+    test_show_bytes(12345);
     return 0;
 }

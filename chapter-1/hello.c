@@ -8,12 +8,12 @@ int lower(int c)
     {
         return c;
     }
-    
 }
 
 int main()
 {
-    printf("%c\n", lower('R'));
-    printf("%c\n", lower('r'));
-    return 0;
+    // printf("%c\n", lower('R'));
+    // printf("%c\n", lower('r'));
+    printf("hello, world\n");
+    // return 0;
 }
